@@ -10,10 +10,14 @@ class Zwierze:
     def urodziny(self):
         self.wiek += 1
 class Slon(Zwierze):
-    pass
+    def przedstaw_sie(self):
+        print(f"Jestem słoniem {self.nazwa}, mam {self.wiek} oraz ważę {self.waga} kg")
 
 class Lew(Zwierze):
-    pass
+    def przedstaw_sie(self):
+        super().przedstaw_sie()
+        print("A tak w ogóle jestem lwem")
+
 
 class Papuga(Zwierze):
     pass
