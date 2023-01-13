@@ -1,25 +1,31 @@
-class Zwierze:
+from abc import ABC, abstractmethod
+class Zwierze(ABC):
     def __init__(self, nazwa, wiek, waga):
         self.nazwa = nazwa
         self.wiek = wiek
         self.waga = waga
 
+    @abstractmethod #tutaj wymuszamy implementację tej metody w klsach pochodnych
+    def nazwa_gatunku(self):
+        pass
+
     def przedstaw_sie(self):
-        print(f"Jestem zwierzakiem {self.nazwa}, mam {self.wiek} lat oraz ważę {self.waga} kg.")
+        print(f"Jestem {self.nazwa_gatunku()}, mam na imię {self.nazwa} mam {self.wiek} lat oraz ważę {self.waga} kg.")
 
     def urodziny(self):
         self.wiek += 1
+
 class Slon(Zwierze):
-    def przedstaw_sie(self):
-        print(f"Jestem słoniem {self.nazwa}, mam {self.wiek} oraz ważę {self.waga} kg")
+    def nazwa_gatunku(self):
+        return "Słoń"
 
 class Lew(Zwierze):
-    def przedstaw_sie(self):
-        super().przedstaw_sie()
-        print("A tak w ogóle jestem lwem")
-
+    def nazwa_gatunku(self):
+        return "Lew"
 
 class Papuga(Zwierze):
+    def nazwa_gatunku(self):
+        return  "Papuga"
     def __init__(self,nazwa, wiek, waga, kolor):
         super().__init__(nazwa,wiek,waga)
         self.kolor = kolor
@@ -38,15 +44,15 @@ def main():
     Dumboo = Slon("Dumboo", 77, 600)
     Simba = Lew("Simba", 24, 100)
     Jago = Papuga("Jago", 32, 3, "czerwony")
-    jakis_zwierz = Zwierze("Matka", 54, 50)
+
     Dumboo.przedstaw_sie()
     Simba.przedstaw_sie()
     Jago.przedstaw_sie()
-    jakis_zwierz.przedstaw_sie()
+
 
     Dumboo.urodziny()
     Dumboo.przedstaw_sie()
-    zoo = [Dumboo, Simba, Jago, jakis_zwierz]
+    zoo = [Dumboo, Simba, Jago]
     nowy_rok(zoo)
     przedstaw_zwierzeta(zoo)
 
