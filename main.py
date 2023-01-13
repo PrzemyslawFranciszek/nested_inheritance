@@ -26,6 +26,14 @@ class Papuga(Zwierze):
     def przedstaw_sie(self):
         super().przedstaw_sie()
         print(f"Jako papuga mój kolor to {self.kolor}")
+def nowy_rok(zoo):
+    for zwierze in zoo:
+        zwierze.urodziny()
+
+def przedstaw_zwierzeta(zoo):
+    for zwierze in zoo:
+        zwierze.przedstaw_sie()
+
 def main():
     Dumboo = Slon("Dumboo", 77, 600)
     Simba = Lew("Simba", 24, 100)
@@ -38,5 +46,9 @@ def main():
 
     Dumboo.urodziny()
     Dumboo.przedstaw_sie()
+    zoo = [Dumboo, Simba, Jago, jakis_zwierz]
+    nowy_rok(zoo)
+    przedstaw_zwierzeta(zoo)
+
 if __name__ == "__main__":
     main()
