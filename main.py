@@ -20,12 +20,16 @@ class Lew(Zwierze):
 
 
 class Papuga(Zwierze):
-    pass
-
+    def __init__(self,nazwa, wiek, waga, kolor):
+        super().__init__(nazwa,wiek,waga)
+        self.kolor = kolor
+    def przedstaw_sie(self):
+        super().przedstaw_sie()
+        print(f"Jako papuga mój kolor to {self.kolor}")
 def main():
     Dumboo = Slon("Dumboo", 77, 600)
     Simba = Lew("Simba", 24, 100)
-    Jago = Papuga("Jago", 32, 3)
+    Jago = Papuga("Jago", 32, 3, "czerwony")
     jakis_zwierz = Zwierze("Matka", 54, 50)
     Dumboo.przedstaw_sie()
     Simba.przedstaw_sie()
